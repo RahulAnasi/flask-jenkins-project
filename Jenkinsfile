@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        IMAGE_NAME = "flask-demo"
+    }
+
     stages {
 
         stage('GitHub Checkout') {
