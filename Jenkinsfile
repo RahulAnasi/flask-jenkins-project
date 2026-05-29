@@ -7,22 +7,28 @@ pipeline {
 
     stages {
 
-        stage('GitHub Checkout') {
+        stage('Checkout') {
             steps {
-                sh 'echo "Code pulled from GitHub"'
+                echo 'Pulling code from GitHub'
             }
         }
 
-        stage('Environment Check') {
+        stage('Verify Environment') {
             steps {
                 sh 'python3 --version'
                 sh 'docker --version'
             }
         }
 
-        stage('Project Files') {
+        stage('Build Docker Image') {
             steps {
-                sh 'ls -la'
+                sh 'docker build -t $IMAGE_NAME .'
+            }
+        }
+
+        stage('Verify Docker Image') {
+            steps {
+                sh 'docker images'
             }
         }
     }
