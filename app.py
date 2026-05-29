@@ -14,7 +14,7 @@ DB_CONFIG = {
 
 @app.route("/")
 def home():
-    return "Flask + PostgreSQL running. Jenkis is doing it's too.Yay!"
+    return "Flask + PostgreSQL running. Jenkis is working fine too.Yay!"
 
 @app.route("/db-check")
 def db_check():
